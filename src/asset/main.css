@@ -1,0 +1,14 @@
+/* 重置基础样式 */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh; /* 关键：确保基础高度 */
+}
+
+/* 处理 Vue 根容器 */
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* 使 header/main/footer 垂直排列 */
+}
