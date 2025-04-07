@@ -5,6 +5,7 @@ import {
   Search,Sunny
 } from '@element-plus/icons-vue'
 import SelfCard from "@/components/selfCard.vue";
+import ListViews from "@/components/list-views.vue";
 </script>
 
 <template>
@@ -46,6 +47,10 @@ import SelfCard from "@/components/selfCard.vue";
   <img src="../../src/components/img/index-top-img.png">
   <self-card />
 </div>
+    <div class="list">
+      <list-views title="最近文章"/>
+      <list-views title="我的手记"/>
+    </div>
   </main>
   <footer>
 
@@ -69,15 +74,15 @@ main {
   width: 100%;
   height: auto;
   min-height: calc(100vh - 160px);
-  background-color: #89daee;
+  background-color: rgba(255, 255, 255, 0.83);
   /* 新增以下属性 */
   flex-shrink: 0; /* 禁止 header 被压缩 */
   position: relative; /* 确保层级 */
   z-index: 1; /* 避免被其他元素覆盖 */
   display: flex;
-  justify-content: center;
-  align-items: start;
-
+  justify-content: start;
+  align-items: center;
+flex-direction: column;
 
 }
 footer {
@@ -120,6 +125,13 @@ img {
   flex-direction: row;
   gap: 100px;
   margin-top: 150px;
+}
+.list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 100px;
 }
 
 
