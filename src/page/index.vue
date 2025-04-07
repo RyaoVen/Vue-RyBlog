@@ -136,7 +136,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: max( 100px , 10vw );
+  gap: max( 100px , 9vw );
   margin-top: 230px;
   margin-bottom: 150px;
 }
