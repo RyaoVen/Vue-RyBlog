@@ -6,6 +6,7 @@ import {
 } from '@element-plus/icons-vue'
 import SelfCard from "@/components/selfCard.vue";
 import ListViews from "@/components/list-views.vue";
+import MyFeel from "@/components/my-feel.vue";
 </script>
 
 <template>
@@ -44,13 +45,16 @@ import ListViews from "@/components/list-views.vue";
 
   <main>
 <div class="top">
-  <img src="../../src/components/img/index-top-img.png">
+  <img src="../../src/components/img/index-top-img.png" alt="tx">
   <self-card />
 </div>
+    <my-feel/>
     <div class="list">
       <list-views title="最近文章"/>
       <list-views title="我的手记"/>
     </div>
+
+
   </main>
   <footer>
 
@@ -88,7 +92,7 @@ flex-direction: column;
 footer {
   width: 100%;
   height: 100px;
-  background-color: #92a1ae;
+  background-color: #f0f6fd;
   /* 新增以下属性 */
   flex-shrink: 0; /* 禁止 header 被压缩 */
   position: relative; /* 确保层级 */
@@ -123,15 +127,18 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 100px;
+  gap: max(100px , 12vw);
   margin-top: 150px;
+  margin-bottom: 150px;
 }
 .list{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  gap: 100px;
+  gap: max( 100px , 10vw );
+  margin-top: 230px;
+  margin-bottom: 150px;
 }
 
 

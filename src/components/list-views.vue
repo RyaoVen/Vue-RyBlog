@@ -59,8 +59,9 @@ ul {
   list-style: none;
 }
 .container{
-  border: 1px #ccc solid;
-  width: 400px;
+
+  width: 32vw;
+  min-width: 400px;
   background-color: rgb(253, 253, 253);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -98,8 +99,7 @@ li:hover {
     transform: translateX(4px);
   }
   .btn{
-    margin-top: 15px;
-    margin-left: 270px;
+    margin: 15px;
   }
 
 </style>
