@@ -7,6 +7,22 @@ import {
 import SelfCard from "@/components/selfCard.vue";
 import ListViews from "@/components/list-views.vue";
 import MyFeel from "@/components/my-feel.vue";
+import MainViews from "@/page/mainViews.vue";
+import {useRouter} from 'vue-router'
+
+
+const router = useRouter()
+
+
+
+function goHome(){
+router.push('home')
+}
+
+function goPassage(){
+  router.push('passage')
+}
+
 </script>
 
 <template>
@@ -19,15 +35,15 @@ import MyFeel from "@/components/my-feel.vue";
     <!-- 中间按钮组 -->
     <div class="btn-group">
       <el-space :size="16">
-        <el-button><el-text class="mx-1">主页</el-text></el-button>
-        <el-button><el-text class="mx-1">文章</el-text></el-button>
+        <el-button @click="goHome"><el-text class="mx-1">主页</el-text></el-button>
+        <el-button @click="goPassage"><el-text class="mx-1">文章</el-text></el-button>
         <el-button><el-text class="mx-1">手记</el-text></el-button>
         <el-button><el-text class="mx-1">归档</el-text></el-button>
         <el-dropdown placement="bottom">
           <el-button> <el-text class="mx-1">更多</el-text> </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item>关于我</el-dropdown-item>
+              <el-dropdown-item >关于我</el-dropdown-item>
               <el-dropdown-item>博客项目</el-dropdown-item>
               <el-dropdown-item>去后台</el-dropdown-item>
             </el-dropdown-menu>
@@ -43,19 +59,11 @@ import MyFeel from "@/components/my-feel.vue";
     </div>
   </header>
 
-  <main>
-<div class="top">
-  <img src="../../src/components/img/index-top-img.png" alt="tx">
-  <self-card />
-</div>
-    <my-feel/>
-    <div class="list">
-      <list-views title="最近文章"/>
-      <list-views title="我的手记"/>
-    </div>
+<main>
+  <RouterView>
 
-
-  </main>
+  </RouterView>
+</main>
   <footer>
 
   </footer>
@@ -118,28 +126,8 @@ footer {
 .tx{
   margin-left: 10px;
 }
-img {
-  width: 400px;
-  height: 400px;
-}
-.top{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: max(100px , 12vw);
-  margin-top: 150px;
-  margin-bottom: 150px;
-}
-.list{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: max( 100px , 9vw );
-  margin-top: 230px;
-  margin-bottom: 150px;
-}
+
+
 
 
 </style>
