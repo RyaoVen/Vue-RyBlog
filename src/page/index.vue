@@ -23,6 +23,10 @@ function goPassage(){
   router.push('passage')
 }
 
+function goSelfLog(){
+  router.push('selfLog')
+}
+
 </script>
 
 <template>
@@ -37,7 +41,7 @@ function goPassage(){
       <el-space :size="16">
         <el-button @click="goHome"><el-text class="mx-1">主页</el-text></el-button>
         <el-button @click="goPassage"><el-text class="mx-1">文章</el-text></el-button>
-        <el-button><el-text class="mx-1">手记</el-text></el-button>
+        <el-button @click="goSelfLog"><el-text class="mx-1">手记</el-text></el-button>
         <el-button><el-text class="mx-1">归档</el-text></el-button>
         <el-dropdown placement="bottom">
           <el-button> <el-text class="mx-1">更多</el-text> </el-button>
@@ -84,8 +88,8 @@ header {
 }
 main {
   width: 100%;
-  height: auto;
-  min-height: calc(100vh - 160px);
+  height: max(calc(100vh - 160px),auto);
+  min-height: 110vh;
   background-color: rgba(255, 255, 255, 0.83);
   /* 新增以下属性 */
   flex-shrink: 0; /* 禁止 header 被压缩 */

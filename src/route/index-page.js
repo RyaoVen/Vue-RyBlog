@@ -2,7 +2,7 @@
 import {createRouter, createWebHistory} from "vue-router"
 import mianViews from '../page/mainViews.vue'
 import Passage from "@/page/Passage.vue";
-
+import selfLog from "@//page/selfLog.vue"
 //创建路由器
 const router = createRouter({
     //路由模式的设定
@@ -24,6 +24,11 @@ const router = createRouter({
         {
             path:'/',
             redirect:'/home'
+        },
+        {
+            name:'selfLog',
+            path:'/selfLog',
+            component:selfLog
         }
 
     ]
