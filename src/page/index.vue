@@ -26,6 +26,9 @@ function goPassage(){
 function goSelfLog(){
   router.push('selfLog')
 }
+function goArchive(){
+  router.push('archive')
+}
 
 </script>
 
@@ -42,14 +45,14 @@ function goSelfLog(){
         <el-button @click="goHome"><el-text class="mx-1">主页</el-text></el-button>
         <el-button @click="goPassage"><el-text class="mx-1">文章</el-text></el-button>
         <el-button @click="goSelfLog"><el-text class="mx-1">手记</el-text></el-button>
-        <el-button><el-text class="mx-1">归档</el-text></el-button>
+        <el-button @click="goArchive"><el-text class="mx-1">归档</el-text></el-button>
         <el-dropdown placement="bottom">
           <el-button> <el-text class="mx-1">更多</el-text> </el-button>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item >关于我</el-dropdown-item>
-              <el-dropdown-item>博客项目</el-dropdown-item>
-              <el-dropdown-item>去后台</el-dropdown-item>
+              <el-dropdown-item>我的项目</el-dropdown-item>
+              <el-dropdown-item>小工具</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
