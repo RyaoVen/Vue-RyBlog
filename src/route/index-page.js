@@ -4,6 +4,9 @@ import mianViews from '../page/mainViews.vue'
 import Passage from "@/page/Passage.vue";
 import selfLog from "@//page/selfLog.vue"
 import archive from  "@//page/archive.vue"
+import myWork from "@/page/myWork.vue";
+import myTools from "@/page/myTools.vue";
+import myself from "@/page/myself.vue";
 //创建路由器
 const router = createRouter({
     //路由模式的设定
@@ -36,6 +39,22 @@ const router = createRouter({
             name:'archive',
             path:'/archive',
             component:archive
+        },
+        {
+            name:'myWork',
+            path:'/myWork',
+            component:myWork
+        }
+        ,
+        {
+            name:'myTools',
+            path:'/myTools',
+            component:myTools
+        },
+        {
+            name:'myself',
+            path:'/myself',
+            component:myself
         }
 
     ]

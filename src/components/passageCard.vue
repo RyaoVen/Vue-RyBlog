@@ -38,7 +38,7 @@ onMounted(async () => {
       index: index,
       title: `测试标题${index + 1}`,
       content: `测试内容${index + 1}，《脱离电网生活：城市居民家庭如何发现简单生活》讲述了一个鼓舞人心的故事，关于一个家庭从拉斯维加斯繁忙的城市生活过渡到脱离电网的乡村生活。面对停电和供水等问题，他们没有放弃，而是努力解决问题，适应新的生活方式。
-这个故事让我们意识到自给自足和资源节约的重要性。在一个资源触手可及的世界里，他们的经历表明，简单生活并充分利用大自然的馈赠是有意义的。同时，这也给年轻一代传授了尊重和保护环境的宝贵经验。他们的旅程不仅是地理位置上的迁移，更是向更可持续、更有意义生活的精神转变。`,
+这个故事让我们意识到自给自足和资源节约的重要性。在一个资源触手可及的世界里，他们的经历表明，简单生活并充分利用大自然的馈赠是有意义的。同时，这也给年轻一代传授了respect和保护环境的宝贵经验。他们的旅程不仅是地理位置上的迁移，更是向更可持续、更有意义生活的精神转变。`,
       img: passageImg,
       id: index,
       date:'2025/4/9/1:45'
@@ -264,10 +264,13 @@ p {
   font-size: 15px;
   line-height: 1.6;
   overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   letter-spacing: 1px;
+  word-break: break-all; /* 确保在单词中间换行 */
+  white-space: normal; /* 允许自动换行 */
 }
 
 span {

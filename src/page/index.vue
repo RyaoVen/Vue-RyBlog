@@ -29,6 +29,15 @@ function goSelfLog(){
 function goArchive(){
   router.push('archive')
 }
+function goMyWork(){
+  router.push('myWork')
+}
+function goMyTools(){
+  router.push('myTools')
+}
+function goMyself(){
+  router.push('myself')
+}
 
 </script>
 
@@ -50,9 +59,9 @@ function goArchive(){
           <el-button> <el-text class="mx-1">更多</el-text> </el-button>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item >关于我</el-dropdown-item>
-              <el-dropdown-item>我的项目</el-dropdown-item>
-              <el-dropdown-item>小工具</el-dropdown-item>
+              <el-dropdown-item @click="goMyself">关于我</el-dropdown-item>
+              <el-dropdown-item @click="goMyWork">我的项目</el-dropdown-item>
+              <el-dropdown-item @click="goMyTools">小工具</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
