@@ -1,12 +1,6 @@
 //Vue组件的引用
 import {createRouter, createWebHistory} from "vue-router"
-import mianViews from '../page/mainViews.vue'
-import Passage from "@/page/Passage.vue";
-import selfLog from "@//page/selfLog.vue"
-import archive from  "@//page/archive.vue"
-import myWork from "@/page/myWork.vue";
-import myTools from "@/page/myTools.vue";
-import myself from "@/page/myself.vue";
+
 //创建路由器
 const router = createRouter({
     //路由模式的设定
@@ -18,12 +12,12 @@ const router = createRouter({
             //路径
             path:'/home',
             //组件绑定
-            component:mianViews
+            component: () => import('../page/mainViews.vue')
         },
         {
             name:'passage',
             path:'/passage',
-            component:Passage
+            component: () => import('@/page/Passage.vue')
         },
         {
             path:'/',
@@ -32,31 +26,40 @@ const router = createRouter({
         {
             name:'selfLog',
             path:'/selfLog',
-            component:selfLog
-        }
-        ,
+            component: () => import('@/page/selfLog.vue')
+        },
         {
             name:'archive',
             path:'/archive',
-            component:archive
+            component: () => import('@/page/archive.vue')
         },
         {
             name:'myWork',
             path:'/myWork',
-            component:myWork
-        }
-        ,
+            component: () => import('@/page/myWork.vue')
+        },
         {
             name:'myTools',
             path:'/myTools',
-            component:myTools
+            component: () => import('@/page/myTools.vue')
         },
         {
             name:'myself',
             path:'/myself',
-            component:myself
+            component: () => import('@/page/myself.vue')
+        },
+        // 添加文章详情页路由
+        {
+            name: 'ArticleDetail',
+            path: '/article/:id',
+            component: () => import('@/components/ArticleDetail.vue')
+        },
+        // 添加笔记详情页路由
+        {
+            name: 'NoteDetail',
+            path: '/note/:id',
+            component: () => import('@/components/ArticleDetail.vue') // 复用同一个组件
         }
-
     ]
 })
 

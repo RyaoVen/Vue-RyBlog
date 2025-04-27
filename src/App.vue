@@ -1,10 +1,10 @@
 <script setup>
-import index from '@/page/index.vue'
+import Index from '@/page/index.vue'
 </script>
 
 <template>
-  <!-- 使用 PascalCase 命名组件 -->
-<index />
+  <!-- 使用Index组件作为主布局 -->
+  <Index />
 </template>
 
 <style scoped>

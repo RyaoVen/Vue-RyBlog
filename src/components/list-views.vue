@@ -6,14 +6,30 @@ const props = defineProps({
   title: {
     type: String,
     default: '默认标题'
+  },
+  items: {
+    type: Array,
+    default: () => []
   }
 })
-const listTitle = Array.from({ length: 6 }, (_, index) => ({
-  index: index,
+
+// 如果没有提供items，则使用默认数据
+const defaultItems = Array.from({ length: 6 }, (_, index) => ({
+  id: index,
   title: `测试标题${index + 1}`,
-  content: `测试内容${index + 1}`,
-  id: index
+  date: '2023-10-01',
+  summary: `测试内容${index + 1}`
 }));
+
+const displayItems = props.items && props.items.length > 0 ? props.items : defaultItems;
+
+// 定义emit事件
+const emit = defineEmits(['item-click']);
+
+// 点击处理函数
+const handleItemClick = (item) => {
+  emit('item-click', item);
+}
 </script>
 
 
@@ -26,9 +42,10 @@ const listTitle = Array.from({ length: 6 }, (_, index) => ({
     <!-- ul 也是块级元素 -->
     <ul>
       <li
-          v-for="item in listTitle.slice(0, 5)"
+          v-for="item in displayItems.slice(0, 5)"
           :key="item.id"
           class="list-item"
+          @click="handleItemClick(item)"
       >
        <span>{{ item.title }}</span><el-icon class="icon"><Right /></el-icon>
       </li>
