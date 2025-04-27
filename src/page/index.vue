@@ -62,6 +62,7 @@ function goMyself(){
               <el-dropdown-item @click="goMyself">关于我</el-dropdown-item>
               <el-dropdown-item @click="goMyWork">我的项目</el-dropdown-item>
               <el-dropdown-item @click="goMyTools">小工具</el-dropdown-item>
+              <el-dropdown-item>个人笔记</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
