@@ -4,7 +4,7 @@ import PlanStudyCard from "@/components/plan-study-card.vue";
 const date = [
   {
     name: "Blog",
-    content: "一个搭载了完整前后端前后台的博客项目，Vue3试手作。一个搭载了完整前后端前后台的博客项目，Vue3试手作。一个搭载了完整前后端前后台的博客项目，Vue3试手作。一个搭载了完整前后端前后台的博客项目，Vue3试手作。",
+    content: "一个基于Vue3+JAVA SpringBoot开发的，搭载了完整前后端前后台的博客项目，Vue3试手作。",
     progress: "50",
     id: 1
   },
