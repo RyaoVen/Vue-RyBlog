@@ -8,19 +8,17 @@ export const articlesData = {
     tags: ['Vue3', 'JavaScript', '前端开发'],
     cover: 'https://picsum.photos/800/400',
     content: `
-# Vue3 组合式API详解
-
-## 什么是组合式API？
-
-组合式API是Vue3中新增的特性，它允许我们使用函数的方式来组织组件的逻辑。
-
-## 为什么使用组合式API？
-
-1. 更好的代码组织
-2. 更好的逻辑复用
-3. 更好的类型推导
-
-\`\`\`javascript
+<h1>Vue3 组合式 API 详解</h1>
+    <h2>什么是组合式 API？</h2>
+    <p>组合式 API 是 Vue3 中新增的特性，它允许我们使用函数的方式来组织组件的逻辑。</p>
+    <h2>为什么使用组合式 API？</h2>
+    <ol>
+        <li>更好的代码组织</li>
+        <li>更好的逻辑复用</li>
+        <li>更好的类型推导</li>
+    </ol>
+    <pre>
+        <code class="language-javascript" >
 import { ref, onMounted } from 'vue'
 
 export default {
@@ -34,7 +32,8 @@ export default {
     return { count }
   }
 }
-\`\`\`
+        </code>
+    </pre>
     `,
     views: 1200,
     likes: 350,

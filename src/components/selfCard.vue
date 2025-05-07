@@ -5,7 +5,10 @@ import {
   User,
     Link
 } from '@element-plus/icons-vue'
-
+import router from "@/route/index-page.js";
+function goSelfPage(){
+  router.push("/myself");
+}
 </script>
 
 <template>
@@ -44,7 +47,7 @@ import {
           content="Ryao_VenKing's Page"
           placement="bottom"
       >
-      <el-button type="primary" :icon="User" plain>个人主页</el-button>
+      <el-button type="primary" :icon="User" plain @click="goSelfPage">个人主页</el-button>
       </el-tooltip>
     </div>
   </el-card>

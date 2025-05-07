@@ -1,11 +1,21 @@
-<script setup>
-
-</script>
-
 <template>
 
 </template>
 
-<style scoped>
+<script setup >
+const date = [
+  {
+    classname:"set",
+    class:[
+      {
+        name:"date",
+        go:"set/date"
+      }
+    ]
+  }
+]
+</script>
+
+<style>
 
 </style>

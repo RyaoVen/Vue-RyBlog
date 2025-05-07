@@ -52,13 +52,13 @@ const router = createRouter({
         {
             name: 'ArticleDetail',
             path: '/article/:id',
-            component: () => import('@/components/ArticleDetail.vue')
+            component: () => import('@/components/TestArticle.vue')
         },
         // 添加笔记详情页路由
         {
             name: 'NoteDetail',
             path: '/note/:id',
-            component: () => import('@/components/ArticleDetail.vue') // 复用同一个组件
+            component: () => import('@/components/TestArticle.vue') // 复用同一个组件
         }
     ]
 })

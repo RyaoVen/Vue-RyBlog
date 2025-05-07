@@ -1,6 +1,7 @@
 <script setup>
 
 import Tx from "@/components/tx.vue";
+import Heatmap from "@/components/heatmap.vue";
 const date = {
   name:'Ryao_VenKing',
   saying:'无限进步'
@@ -28,10 +29,14 @@ const date = {
 
     </div>
   </div>
+
 </div>
-<p>这里是一个日历热力图，但是还没写</p>
 
 
+
+<div class="container">
+  <heatmap/>
+</div>
 
 
 </template>
