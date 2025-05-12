@@ -159,7 +159,7 @@ span{
 .content{
   height: 110vh;
   width: calc(100vw - 220px);
-  background-color: #91bc25;
+
   margin-left: 220px;
 }
 .folded {

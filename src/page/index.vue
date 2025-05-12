@@ -122,6 +122,9 @@ router.afterEach((to) => {
     currentPath.value = to.name
   })
 })
+onMounted(() => {
+  router.push('/home')
+})
 </script>
 
 <template>

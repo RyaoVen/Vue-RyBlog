@@ -11,6 +11,10 @@ const router = createRouter({
             path:'/',
             component: () => import('/src/page/index.vue'),
             children:[
+                {
+                    path:'',
+                    redirectTo:'home',
+                },
                 { //路由的命名
                     name:'home',
                     //路径
