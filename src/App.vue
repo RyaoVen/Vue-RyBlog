@@ -4,7 +4,10 @@ import Index from '@/page/index.vue'
 
 <template>
   <!-- 使用Index组件作为主布局 -->
-  <Index />
+
+  <RouterView>
+
+  </RouterView>
 </template>
 
 <style scoped>

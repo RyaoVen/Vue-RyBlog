@@ -7,58 +7,72 @@ const router = createRouter({
     history:createWebHistory(),
     //管理路由
     routes:[  //一个一个的路由规则
-        { //路由的命名
-            name:'home',
-            //路径
-            path:'/home',
-            //组件绑定
-            component: () => import('../page/mainViews.vue')
-        },
-        {
-            name:'passage',
-            path:'/passage',
-            component: () => import('@/page/Passage.vue')
-        },
         {
             path:'/',
-            redirect:'/home'
+            component: () => import('/src/page/index.vue'),
+            children:[
+                { //路由的命名
+                    name:'home',
+                    //路径
+                    path:'home',
+                    //组件绑定
+                    component: () => import('../page/mainViews.vue')
+                },
+                {
+                    name:'passage',
+                    path:'passage',
+                    component: () => import('@/page/Passage.vue')
+                },
+                {
+                    name:'selfLog',
+                    path:'selfLog',
+                    component: () => import('@/page/selfLog.vue')
+                },
+                {
+                    name:'archive',
+                    path:'archive',
+                    component: () => import('@/page/archive.vue')
+                },
+                {
+                    name:'myWork',
+                    path:'myWork',
+                    component: () => import('@/page/myWork.vue')
+                },
+                {
+                    name:'myTools',
+                    path:'myTools',
+                    component: () => import('@/page/myTools.vue')
+                },
+                {
+                    name:'myself',
+                    path:'myself',
+                    component: () => import('@/page/myself.vue')
+                },
+                // 添加文章详情页路由
+                {
+                    name: 'ArticleDetail',
+                    path: 'article/:id',
+                    component: () => import('@/components/TestArticle.vue')
+                },
+                // 添加笔记详情页路由
+                {
+                    name: 'NoteDetail',
+                    path: 'note/:id',
+                    component: () => import('@/components/TestArticle.vue') // 复用同一个组件
+                }
+            ]
         },
         {
-            name:'selfLog',
-            path:'/selfLog',
-            component: () => import('@/page/selfLog.vue')
-        },
-        {
-            name:'archive',
-            path:'/archive',
-            component: () => import('@/page/archive.vue')
-        },
-        {
-            name:'myWork',
-            path:'/myWork',
-            component: () => import('@/page/myWork.vue')
-        },
-        {
-            name:'myTools',
-            path:'/myTools',
-            component: () => import('@/page/myTools.vue')
-        },
-        {
-            name:'myself',
-            path:'/myself',
-            component: () => import('@/page/myself.vue')
-        },
-        // 添加文章详情页路由
-        {
-            name: 'ArticleDetail',
-            path: '/article/:id',
-            component: () => import('@/components/TestArticle.vue')
-        },
-        // 添加笔记详情页路由
-        {
-            name: 'NoteDetail',
-            path: '/note/:id',
-            component: () => import('@/components/TestArticle.vue') // 复用同一个组件
+            path:'/admin',
+            name:'admin',
+            component:()=>import("/src/page/backViews.vue"),
+            children:[
+                {
+                    name:'backHome',
+                    path:'',
+                    component:()=>import('@/page/backHomePage.vue')
+                }
+            ]
         }
     ]
 })
