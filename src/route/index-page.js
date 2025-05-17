@@ -73,7 +73,7 @@ const router = createRouter({
             children:[
                 {
                     name:'backHome',
-                    path:'',
+                    path:'main',
                     component:()=>import('@/page/backHomePage.vue')
                 }
             ]

@@ -1,5 +1,5 @@
 <script setup>
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 
 let notes = ref()
 let note = ref()
@@ -45,9 +45,12 @@ function passagesClick(){
     passagesState = false
   }
 }
-
+onMounted(() => {
+  router.push("/admin/main")
+})
 
 import Tx from "@/components/tx.vue";
+import router from "../route/index-page.js"
 import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User} from "@element-plus/icons-vue";
 </script>
 
@@ -148,6 +151,7 @@ main{
   flex-direction: column;
   justify-content: start;
   align-items: start;
+  border-right: 2px solid rgba(64, 64, 64, 0.15);
 
 }
 span{
