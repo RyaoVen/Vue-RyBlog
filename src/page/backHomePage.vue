@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import 图组 from "@/components/图组.vue";
+
 import Charts from "@/components/charts.vue";
 
 const tableData = [
