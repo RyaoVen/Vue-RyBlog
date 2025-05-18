@@ -1,5 +1,29 @@
-<script setup>
+<script lang="ts" setup>
+import 图组 from "@/components/图组.vue";
+import Charts from "@/components/charts.vue";
 
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+]
 </script>
 
 <template>
@@ -56,21 +80,139 @@
   </div>
 
   <div class="chart">
-    <div class="lineChart">这里是一个折线图</div>
-    <div class="donutChart">这里是一个圆环图</div>
+    <charts/>
   </div>
   <div class="title">
     事件
   </div>
   <div class="action">
-    这里写个列表，最近事务与操作
+    <div class="action-top">
+      <span class="action-top-title">最近事项</span>
+      <a href="#">查看完整</a>
+
+    </div>
+    <el-table :data="tableData"  stripe style="width: 100%">
+      <el-table-column prop="date" label="活动类型"  />
+      <el-table-column prop="name" label="内容"  />
+      <el-table-column prop="address" label="时间" />
+      <el-table-column label="状态"/>
+      <el-table-column label="操作">
+        <template #default="scope">
+          <el-button
+            type="primary"
+            size="small"
+            @click="handleEdit(scope.$index, scope.row)"
+          >
+            编辑
+          </el-button>
+          <el-button
+            type="danger"
+            size="small"
+            @click="handleDelete(scope.$index, scope.row)"
+          >
+            删除
+          </el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
-  <div class="todo">
-    这里写自己的饼和规划
+  <div class="action">
+    <span class="action-top-title">TODO</span>
+    <ul class="TODO-list-ul">
+      <li class="TODO-list">
+        <div class="TODO-title">
+          <span class="TODO-title-text">首页页面</span>
+          <span class="TODO-title-num">80%</span>
+        </div>
+        <div class="progress"></div>
+      </li>
+      <li class="TODO-list">
+        <div class="TODO-title">
+          <span class="TODO-title-text">侧边栏</span>
+          <span class="TODO-title-num">80%</span>
+        </div>
+        <div class="progress"></div>
+        <li class="TODO-list">
+          <div class="TODO-title">
+            <span class="TODO-title-text">文章管理页面</span>
+            <span class="TODO-title-num">80%</span>
+          </div>
+          <div class="progress"></div>
+        </li>
+
+      </li>
+
+
+
+    </ul>
   </div>
 </main>
 </template>
 <style scoped>
+.chart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  align-items: center;
+}
+li{
+list-style: none;
+}
+.progress {
+  position: relative;
+  width: 99%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #e0e0e0;
+  overflow: hidden;
+  margin-left: 5px;
+}
+.TODO-list-ul{
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+
+
+}
+.progress::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 2px;
+  background-color: #0080ff;
+  width: 80%;
+  transition: width 0.3s ease;
+}
+li,ul{
+  margin: 0;
+  padding: 0;
+}
+.TODO-list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.TODO-title-text{
+  font-size: 0.8em;
+  color: #2c3e50;
+}
+.TODO-title-num{
+  font-size: 0.8em;
+  color:rgba(0, 128, 255, 0.9) ;
+}
+.TODO-title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 5px;
+  width: 100%;
+}
+
 .calendar{
   padding: 11px;
   border-radius: 5px;
@@ -100,11 +242,12 @@
   transition: all 0.188s ease;
   cursor: pointer;
 }
+
 .topCard:hover{
   transform: translate(0,-1px);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.33);
-
 }
+
 main{
   display: flex;
   flex-direction: column;
@@ -113,6 +256,7 @@ main{
   margin-left: auto;
   margin-right: auto;
   padding-top:35px;
+  padding-bottom: 50px ;
 }
 
 p,span,h1{
@@ -168,20 +312,29 @@ p,span,h1{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 35px;
+  justify-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
+  gap: 15px 0;
 }
 .dateCard{
+  width: 200px;
+  height: 75px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 15px;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 8px;
   cursor: pointer;
   user-select: none;
+  position: relative;
+  background-color: white;
+  border-left: 3px solid rgba(0, 128, 255, 0.8);
+
 }
+
 .dateCard-title{
   color: grey;
   font-size: 0.88em;
@@ -191,11 +344,51 @@ p,span,h1{
   font-size: 1.25em;
   font-weight: bold;
 }
-.dateCard:hover{
-  transform: translate(0,-5px);
+.dateCard:hover {
+  transform: translate(0, -5px);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.33);
-
+}
+.action{
+  width: 100%;
+  display: flex;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
+  padding: 20px;
+  border-radius: 8px;
+  flex-direction: column;
+  gap: 5px 0;
+}
+.action-top-title{
+  color: #2c3e50;
+  font-size: 0.95em;
+  font-weight: bold;
+}
+.action-top{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+a {
+  position: relative;
+  text-decoration-line: none;
+  color: rgba(0, 128, 255, 0.95);
+  font-size: 0.85em;
+}
+a::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background:rgba(0, 128, 255, 0.95) ;
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+a:hover::before {
+  width: 100%;
+}
 
 </style>
+

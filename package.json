@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "chart.js": "^4.4.9",
     "element-plus": "^2.9.7",
     "highlight.js": "^11.11.1",
     "pinia": "^3.0.1",
