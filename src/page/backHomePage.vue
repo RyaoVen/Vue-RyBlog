@@ -1,7 +1,115 @@
 <script lang="ts" setup>
 
-import Charts from "@/components/charts.vue";
+import Chart from "chart.js/auto";
+import {onMounted, ref} from "vue";
+let line = ref();
+let doughnut = ref();
+let doughnutChart = null;
+let lineChart = null;
+ onMounted(() => {
+   if (line.value) {
+     lineChart = new Chart(line.value, {
+       type: 'line',
+       data: {
+         labels: ['1日', '5日', '10日', '15日', '20日', '25日', '30日'],
+         datasets: [{
+           label: '访客数',
+           data: [65, 59, 80, 81, 56, 14, 56],
+           backgroundColor: 'rgba(75, 192, 192, 0.2)', // 背景色
+           borderColor: 'rgba(75, 192, 192, 1)', // 边框色
+           borderWidth: 3,// 边框宽度
+           tension: 0.4,
+           fill: true,
+         }
+           , {
+             label: '阅读数',
+             data: [35, 49, 50, 61, 46, 11, 44],
+             backgroundColor: 'rgba(96,192,75,0.2)', // 背景色
+             borderColor: 'rgba(96,192,75, 1)', // 边框色
+             borderWidth: 3,
+             tension: 0.4,
+             fill: true,
 
+           }]
+       }
+
+     })
+   }
+
+   if (doughnut.value) {
+     // 为不同扇区定义不同颜色
+     const sectorColors = [
+       'rgba(54, 162, 235, 0.7)',  // 蓝色
+       'rgba(255, 99, 132, 0.7)',  // 红色
+       'rgba(255, 206, 86, 0.7)',  // 黄色
+       'rgba(75, 192, 192, 0.7)'   // 绿色
+     ];
+
+     // 定义边框颜色（可选）
+     const borderColors = [
+       'rgba(54, 162, 235, 1)',
+       'rgba(255, 99, 132, 1)',
+       'rgba(255, 206, 86, 1)',
+       'rgba(75, 192, 192, 1)'
+     ];
+
+     // 创建环形图
+     doughnutChart = new Chart(doughnut.value, {
+       type: 'doughnut',
+       data: {
+         labels: ['文章', '手记', '笔记', '项目'],
+         datasets: [{
+           label: '访客数',
+           data: [65, 59, 80, 81],
+           backgroundColor: sectorColors,  // 使用不同颜色区分扇区
+           borderColor: borderColors,      // 边框颜色
+           borderWidth: 2,                 // 减小边框宽度使图表更精致
+           hoverOffset: 15                 // 鼠标悬停时的偏移效果
+         }]
+       },
+       options: {
+         responsive: true,
+         maintainAspectRatio: false,
+         cutout: '65%',                   // 设置环形图中间空洞大小
+         plugins: {
+           legend: {
+             position: 'right',           // 图例位置
+             labels: {
+               padding: 20,
+               font: {
+                 size: 12
+               }
+             }
+           },
+           tooltip: {
+             backgroundColor: 'rgba(255, 255, 255, 0.9)',
+             titleColor: '#333',
+             bodyColor: '#666',
+             borderColor: '#ddd',
+             borderWidth: 1,
+             padding: 10,
+             displayColors: true,
+             callbacks: {
+               label: function(context) {
+                 const label = context.label || '';
+                 const value = context.raw || 0;
+                 const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                 const percentage = Math.round((value / total) * 100);
+                 return `${label}: ${value} (${percentage}%)`;
+               }
+             }
+           }
+         },
+         animation: {
+           animateRotate: true,
+           animateScale: true,
+           duration: 2000,
+           easing: 'easeOutQuart'
+         }
+       }
+     });
+   }
+ });
 const tableData = [
   {
     date: '2016-05-03',
@@ -80,7 +188,8 @@ const tableData = [
   </div>
 
   <div class="chart">
-    <charts/>
+    <div class="card"><div class="action-top"> <span class="action-top-title">阅读数据分析</span></div><canvas id="line" ref="line" height="400px" width="880px"></canvas></div>
+    <div class="card"><div class="action-top"> <span class="action-top-title">阅读数据分析</span></div><canvas id="doughnut" ref="doughnut" height="400px" width="440px"></canvas></div>
   </div>
   <div class="title">
     事件
@@ -149,13 +258,7 @@ const tableData = [
 </main>
 </template>
 <style scoped>
-.chart{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 
-  align-items: center;
-}
 li{
 list-style: none;
 }
@@ -222,8 +325,8 @@ li,ul{
   display: flex;
   flex-direction: row;
   width: 100%;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+
 }
 .topCard {
   margin-left: auto;
@@ -356,6 +459,16 @@ p,span,h1{
   border-radius: 8px;
   flex-direction: column;
   gap: 5px 0;
+}
+.card{
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  max-height:420px ;
 }
 .action-top-title{
   color: #2c3e50;
