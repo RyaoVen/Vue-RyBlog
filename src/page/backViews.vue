@@ -45,9 +45,13 @@ function passagesClick(){
     passagesState = false
   }
 }
-onMounted(() => {
+
+function goArticleManagement(){
+  router.push("/admin/articleManagement")
+}
+function goMain(){
   router.push("/admin/main")
-})
+}
 
 import Tx from "@/components/tx.vue";
 import router from "../route/index-page.js"
@@ -62,7 +66,7 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User}
     </div>
     <ul>
       <li >
-        <div class="menuTitle">
+        <div class="menuTitle" @click="goMain">
         <span class="title"><el-icon color="#404040"><House /></el-icon>首页</span>
         </div>
       </li>
@@ -70,7 +74,7 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User}
         <div class="menuTitle" @click="passagesClick"><span class="title"><el-icon color="#404040"><Document /></el-icon>文章</span ><div ref="passage" class="arrow"><el-icon color="#404040"><ArrowDown /></el-icon></div></div>
         <ul class="folded" ref="passages">
           <li>
-            <div class="menuTitle">
+            <div class="menuTitle" @click="goArticleManagement">
               <span class="title"><el-icon color="#404040"><Document /></el-icon>文章管理</span >
             </div>
           </li>
@@ -119,6 +123,9 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User}
       </li>
       <li>
         <div class="menuTitle"><span class="title"><el-icon color="#404040"><User /></el-icon>个人资料</span></div>
+      </li>
+      <li>
+        <div class="menuTitle"><span class="title"><el-icon color="#404040"><Folder /></el-icon>图库</span ></div>
       </li>
 
     </ul>

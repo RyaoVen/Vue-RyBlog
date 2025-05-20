@@ -75,6 +75,11 @@ const router = createRouter({
                     name:'backHome',
                     path:'main',
                     component:()=>import('@/page/backHomePage.vue')
+                },
+                {
+                    name:'articleManagement',
+                    path:'articleManagement',
+                    component:()=>import('@/page/articleManagement.vue')
                 }
             ]
         }
