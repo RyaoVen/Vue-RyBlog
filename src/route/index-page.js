@@ -80,7 +80,13 @@ const router = createRouter({
                     name:'articleManagement',
                     path:'articleManagement',
                     component:()=>import('@/page/articleManagement.vue')
+                },
+                {
+                    name:'myselfSet',
+                    path:'myselfSet',
+                    component:()=>import('@/page/MyselfSet.vue'),
                 }
+
             ]
         }
     ]
