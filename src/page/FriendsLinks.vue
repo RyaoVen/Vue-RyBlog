@@ -16,21 +16,26 @@ const form = reactive({
 
 <template>
 <main>
+  <div class="title">
+    友链
+  </div>
   <div class="card">
-    <div class="title">
-      友链添加
+    <div class="card-top">
+      <div class="card-top-title">
+        添加
+      </div>
     </div>
     <div class="form">
       <el-form :model="form" label-width="auto">
-        <el-form-item label="昵称" >
-          <el-input v-model="form.name" />
+        <el-form-item label="昵称"  >
+          <el-input v-model="form.name" style="width: 300px" />
         </el-form-item>
 
-        <el-form-item label="简介">
-          <el-input type="textarea" />
+        <el-form-item label="简介" >
+          <el-input type="textarea" style="width: 500px;" />
         </el-form-item>
-        <el-form-item label="链接">
-          <el-input v-model="form.name" />
+        <el-form-item label="链接" >
+          <el-input v-model="form.name" style="width: 300px" />
         </el-form-item>
         <el-form-item label="图片">
         </el-form-item>
@@ -41,8 +46,10 @@ const form = reactive({
 
   </div>
   <div class="card">
-    <div class="title">
-      友链管理
+    <div class="card-top">
+      <div class="card-top-title">
+        管理
+      </div>
     </div>
     <div>
       这里是一张表，还没写
@@ -52,36 +59,9 @@ const form = reactive({
 </template>
 
 <style scoped>
-.title{
-  font-size: 1.45em;
-  font-weight: bold;
-  color: #2c3e50;
-  user-select:none;
-  padding: 5px;
-  border-left: 5px solid rgba(0, 128, 255, 0.8);
-}
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 88%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 35px;
-  padding-bottom: 35px;
-  gap: 15px;
-}
-.card{
-  width: 100%;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.13);
-  padding: 45px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-}
+
+@import "@/CSS/BackStage/main.css";
+
 .form{
   width: 100%;
   margin-top: 25px;
