@@ -85,6 +85,14 @@ const router = createRouter({
                     name:'myselfSet',
                     path:'myselfSet',
                     component:()=>import('@/page/MyselfSet.vue'),
+                },{
+                    name:'friendsLinks',
+                    path:'friendsLinks',
+                    component:()=>import('@/page/FriendsLinks.vue')
+                },{
+                    name:'oneWord',
+                    path:'oneWord',
+                    component:()=>import ('@/page/OneWord.vue'),
                 }
 
             ]

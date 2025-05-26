@@ -55,10 +55,15 @@ function goMain(){
 function goMyselfSet(){
   router.push("/admin/myselfSet")
 }
-
+function goFindsLinks(){
+  router.push("/admin/friendsLinks")
+}
+function goOneWord(){
+  router.push("/admin/oneWord")
+}
 import Tx from "@/components/tx.vue";
 import router from "../route/index-page.js"
-import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User} from "@element-plus/icons-vue";
+import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,HotWater} from "@element-plus/icons-vue";
 </script>
 
 <template>
@@ -122,13 +127,16 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User}
         <div class="menuTitle"><span class="title"><el-icon color="#404040"><ChatDotSquare /></el-icon>评论管理</span></div>
       </li>
       <li>
-        <div class="menuTitle"><span class="title"><el-icon color="#404040"><Link /></el-icon>友链</span></div>
+        <div class="menuTitle" @click="goFindsLinks"><span class="title"><el-icon color="#404040"><Link /></el-icon>友链</span></div>
       </li>
       <li>
         <div class="menuTitle" @click="goMyselfSet"><span class="title"><el-icon color="#404040"><User /></el-icon>个人资料</span></div>
       </li>
       <li>
         <div class="menuTitle"><span class="title"><el-icon color="#404040"><Folder /></el-icon>图库</span ></div>
+      </li>
+      <li>
+        <div class="menuTitle" @click="goOneWord"><span class="title"><el-icon><HotWater /></el-icon>一言</span ></div>
       </li>
 
     </ul>
