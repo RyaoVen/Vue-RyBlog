@@ -77,7 +77,6 @@ const form = reactive({
       </div>
       <div class="form">
         <el-form label-width="auto">
-
             <el-form-item label="Github链接">
               <el-input v-model="form.github" style="width: 280px" />
             </el-form-item>
