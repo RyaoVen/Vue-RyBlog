@@ -10,29 +10,7 @@ let passage = ref()
 let projectsState = false
 let notesState = false
 let passagesState = false
-function notesClick(){
-if(!notesState){
-  notes.value.classList.remove('folded')
-  note.value.classList.add('rotating')
-  notesState = true
-}else {
-  notes.value.classList.add('folded')
-  note.value.classList.remove('rotating')
-  notesState = false
-}
-}
 
-function projectsClick(){
-  if(!projectsState){
-    projects.value.classList.remove('folded')
-    project.value.classList.add('rotating')
-    projectsState = true
-  }else {
-    projects.value.classList.add('folded')
-    project.value.classList.remove('rotating')
-    projectsState = false
-  }
-}
 
 function passagesClick(){
   if(!passagesState){
@@ -64,6 +42,9 @@ function goOneWord(){
 function goEditor(){
   router.push("/admin/editor")
 }
+function goWeb(){
+  router.push("/home")
+}
 import Tx from "@/components/tx.vue";
 import router from "../route/index-page.js"
 import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,HotWater} from "@element-plus/icons-vue";
@@ -82,7 +63,13 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,
         </div>
       </li>
       <li>
-        <div class="menuTitle" @click="passagesClick"><span class="title"><el-icon color="#404040"><Document /></el-icon>文章</span ><div ref="passage" class="arrow"><el-icon color="#404040"><ArrowDown /></el-icon></div></div>
+        <div class="menuTitle" @click="goEditor">
+          <span class="title"><el-icon color="#404040"><Document /></el-icon>文章发布</span >
+        </div>
+      </li>
+      <li>
+
+        <div class="menuTitle" @click="passagesClick"><span class="title"><el-icon color="#404040"><Document /></el-icon>发布管理</span ><div ref="passage" class="arrow"><el-icon color="#404040"><ArrowDown /></el-icon></div></div>
         <ul class="folded" ref="passages">
           <li>
             <div class="menuTitle" @click="goArticleManagement">
@@ -90,42 +77,14 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,
             </div>
           </li>
           <li>
-            <div class="menuTitle" @click="goEditor">
-              <span class="title"><el-icon color="#404040"><Document /></el-icon>文章发布</span >
-            </div>
+            <div class="menuTitle"> <span class="title"><el-icon color="#404040"><Folder /></el-icon>项目管理</span ></div>
           </li>
-
-        </ul>
-      </li>
-
-      <li >
-        <div class="menuTitle" @click="projectsClick" ref="projects">
-          <span class="title"><el-icon color="#404040"><Folder /></el-icon>项目</span><div ref="project" class="arrow"><el-icon color="#404040"><ArrowDown /></el-icon></div>
-        </div>
-        <ul ref="projects" class="folded">
-          <li>
-           <div class="menuTitle"> <span class="title"><el-icon color="#404040"><Folder /></el-icon>项目管理</span ></div>
-          </li>
-          <li>
-            <div class="menuTitle"><span class="title"><el-icon color="#404040"><Folder /></el-icon>项目发布</span ></div>
-          </li>
-
-        </ul>
-      </li>
-
-      <li  >
-        <div class="menuTitle" @click="notesClick"><span class="title"><el-icon color="#404040" ><Notebook /></el-icon>手记</span><div ref="note" class="arrow"><el-icon  color="#404040"><ArrowDown /></el-icon></div></div>
-        <ul ref="notes" class="folded">
           <li>
             <div class="menuTitle"><span class="title"><el-icon color="#404040"><Notebook /></el-icon>手记管理</span ></div>
           </li>
-          <li>
-            <div class="menuTitle"><span class="title"><el-icon color="#404040"><Notebook /></el-icon>手记发布</span ></div>
-          </li>
 
         </ul>
       </li>
-
       <li>
         <div class="menuTitle"><span class="title"><el-icon color="#404040"><ChatDotSquare /></el-icon>评论管理</span></div>
       </li>
@@ -140,6 +99,9 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,
       </li>
       <li>
         <div class="menuTitle" @click="goOneWord"><span class="title"><el-icon><HotWater /></el-icon>一言</span ></div>
+      </li>
+      <li>
+        <div class="menuTitle" @click="goWeb"><span class="title"><el-icon><HotWater /></el-icon>去前台</span ></div>
       </li>
 
     </ul>

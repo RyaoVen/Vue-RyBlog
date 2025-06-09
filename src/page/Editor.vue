@@ -21,6 +21,17 @@
     <el-form-item label="作者">
       <el-input  style="width: 800px" />
     </el-form-item>
+    <el-form-item label="分类">
+      <el-select v-model="value"
+                 placeholder="Select"
+                 size="large"
+                 style="width: 240px">
+        <el-option label="文章" value="passage"></el-option>
+        <el-option label="手记" value="daily"></el-option>
+        <el-option label="项目" value="project"></el-option>
+      </el-select>
+    </el-form-item>
+
   </div>
   <div class="card">
     <div class="card-top">
@@ -32,7 +43,7 @@
     <div ref="toolbarElement" class="w-e-toolbar"></div>
   </div>
   <div class="card">
-    <el-button plain type="primary">发布</el-button>
+    <el-button plain type="primary" @click="MessageSuccess">发布</el-button>
   </div>
 </main>
 </template>
@@ -41,6 +52,9 @@
 import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 import { createEditor, createToolbar } from '@wangeditor/editor'
 import { useDebounceFn } from '@vueuse/core'
+import {ElMessage} from "element-plus";
+
+const value = ref('')
 
 const props = defineProps({
   modelValue: {
@@ -109,6 +123,9 @@ watch(() => props.modelValue, (newValue) => {
     editor.setHtml(newValue)
   }
 })
+const MessageSuccess = () => {
+  ElMessage.success("发布成功！")
+}
 </script>
 
 <style scoped>
