@@ -61,6 +61,9 @@ function goFindsLinks(){
 function goOneWord(){
   router.push("/admin/oneWord")
 }
+function goEditor(){
+  router.push("/admin/editor")
+}
 import Tx from "@/components/tx.vue";
 import router from "../route/index-page.js"
 import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,HotWater} from "@element-plus/icons-vue";
@@ -87,7 +90,7 @@ import {ArrowDown, ChatDotSquare, Document, Folder, House, Link, Notebook, User,
             </div>
           </li>
           <li>
-            <div class="menuTitle">
+            <div class="menuTitle" @click="goEditor">
               <span class="title"><el-icon color="#404040"><Document /></el-icon>文章发布</span >
             </div>
           </li>

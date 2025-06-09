@@ -93,6 +93,10 @@ const router = createRouter({
                     name:'oneWord',
                     path:'oneWord',
                     component:()=>import ('@/page/OneWord.vue'),
+                },{
+                    name:'Editor',
+                    path:'editor',
+                    component:()=>import('@/page/Editor.vue'),
                 }
 
             ]
