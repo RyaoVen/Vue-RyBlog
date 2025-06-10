@@ -25,7 +25,7 @@ const router = useRouter()
 const articles = ref([
   { id: 1, title: 'Vue3 组合式API详解', date: '2023-10-15', summary: 'Vue3的组合式API提供了更灵活的代码组织方式...' },
   { id: 2, title: 'Vite构建工具使用指南', date: '2023-10-10', summary: 'Vite是一个现代前端构建工具，它显著提升了开发体验...' },
-  { id: 3, title: 'CSS Grid布局完全指南', date: '2023-10-05', summary: 'Grid布局是CSS中强大的二维布局系统，本文将详细介绍...' },
+  { id: 3, title: '关于RyBlog', date: '2025-06-09', summary: '关于RyBlog和RyaoVen的一些介绍' },
   { id: 4, title: '前端性能优化策略', date: '2023-09-28', summary: '本文总结了提升前端应用性能的多种实用技巧...' }
 ])
 

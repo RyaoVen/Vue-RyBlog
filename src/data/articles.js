@@ -68,5 +68,20 @@ app.use(ElInput)
     views: 800,
     likes: 220,
     comments: []
+  },
+  3: {
+    id: 3,
+    title: '关于RyBlog',
+    author: 'RyaoVen',
+    date: '2025-06-09',
+    category: '技术',
+    tags: ['RyBlog', 'UI框架', '前端开发'],
+    cover: 'https://picsum.photos/800/400',
+    content: `
+ 
+    `,
+    views: 800,
+    likes: 220,
+    comments: []
   }
 }
