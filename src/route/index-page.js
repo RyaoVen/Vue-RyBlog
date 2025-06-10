@@ -100,6 +100,10 @@ const router = createRouter({
                 }
 
             ]
+        },{
+            path:'/login',
+            name:'login',
+            component:()=>import('@/page/Login.vue')
         }
     ]
 })

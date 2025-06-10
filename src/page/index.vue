@@ -194,7 +194,7 @@ onMounted(() => {
         </div>
         <div class="footer-links">
           <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">备案号</a>
-          <a href="/admin/main">后台</a>
+          <a href="/login">后台</a>
           <span class="divider">|</span>
           <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
