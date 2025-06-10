@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {reactive} from "vue";
+import ImgUpdate from "@/components/imgUpdate.vue";
 
 const form = reactive({
   name: '',
@@ -29,7 +30,7 @@ const form = reactive({
       <div class="form">
         <el-form :model="form" label-width="auto">
           <el-form-item label="头像">
-
+          <img-update/>
           </el-form-item>
           <el-form-item label="昵称">
             <el-input v-model="form.name" style="width: 800px" />

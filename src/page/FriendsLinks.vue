@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {reactive} from "vue";
+import ImgUpdate from "@/components/imgUpdate.vue";
 
 const form = reactive({
   name: '',
@@ -60,6 +61,7 @@ const tableData = [
           <el-input v-model="form.name" style="width: 300px" />
         </el-form-item>
         <el-form-item label="图片">
+          <img-update/>
         </el-form-item>
 
       </el-form>
@@ -108,16 +110,5 @@ const tableData = [
 
 @import "@/CSS/BackStage/main.css";
 
-.form{
-  width: 100%;
-  margin-top: 25px;
-  margin-left: 25px;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 5px 5px;
-  flex-wrap: wrap;
-}
+
 </style>

@@ -5,7 +5,7 @@ const date = [
   {
     name: "Blog",
     content: "一个基于Vue3+JAVA SpringBoot开发的，搭载了完整前后端前后台的博客项目，Vue3试手作。",
-    progress: "50",
+    progress: "65",
     id: 1
   },
   {
